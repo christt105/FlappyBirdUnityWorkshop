@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI bestScoreText;
-    private int bestScore;
-
-    private int score;
+    
+    private int _score;
+    private int _bestScore;
 
     private void Awake()
     {
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = "";
         gameOver.enabled = false;
-        bestScore = PlayerPrefs.GetInt("best", 0);
-        bestScoreText.text = "best: " + bestScore;
+        _bestScore = PlayerPrefs.GetInt("best", 0);
+        bestScoreText.text = "best: " + _bestScore;
     }
 
     private void Update()
@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     bird.StartGame();
-                    score = 0;
+                    _score = 0;
                     startGame.enabled = false;
-                    scoreText.text = score.ToString();
+                    scoreText.text = _score.ToString();
                     state = State.Playing;
                 }
 
@@ -65,26 +65,27 @@ public class GameManager : MonoBehaviour
                 {
                     SceneManager.LoadScene("SampleScene");
                 }
-
                 break;
         }
     }
 
     public void AddPoint()
     {
-        score += 1;
-        scoreText.text = score.ToString();
+        _score += 1;
+        scoreText.text = _score.ToString();
     }
 
     public void GameOver()
     {
         state = State.GameOver;
+        
         gameOver.enabled = true;
         pipeSpawner.enabled = false;
-        if (score > bestScore)
+        
+        if (_score > _bestScore)
         {
-            bestScore = score;
-            PlayerPrefs.SetInt("best", bestScore);
+            _bestScore = _score;
+            PlayerPrefs.SetInt("best", _bestScore);
         }
     }
 }

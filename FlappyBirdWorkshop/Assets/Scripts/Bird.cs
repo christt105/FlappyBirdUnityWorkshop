@@ -19,8 +19,18 @@ public class Bird : MonoBehaviour
     {
         if (GameManager.Instance.state == GameManager.State.Playing)
         {
-            HandleJump();
-            RotateBird();
+            if (Input.GetButtonDown("Jump"))
+            {
+                _rigidbody2D.velocity = Vector2.zero;
+                _rigidbody2D.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+            }
+            
+            float velocityY = _rigidbody2D.velocity.y;
+            const float minRotation = -90f;
+            const float maxRotation = 30f;
+            float rotation = Mathf.Clamp(velocityY * 30f + 60f, minRotation, maxRotation);
+
+            transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
         else if (GameManager.Instance.state == GameManager.State.GameOver)
         {
@@ -36,25 +46,6 @@ public class Bird : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         CheckCollision(other);
-    }
-
-    private void HandleJump()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            _rigidbody2D.velocity = Vector2.zero;
-            _rigidbody2D.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-        }
-    }
-
-    private void RotateBird()
-    {
-        float velocityY = _rigidbody2D.velocity.y;
-        const float minRotation = -90f;
-        const float maxRotation = 30f;
-        float rotation = Mathf.Clamp(velocityY * 30f + 60f, minRotation, maxRotation);
-
-        transform.rotation = Quaternion.Euler(0f, 0f, rotation);
     }
 
     private void CheckCollision(Collider2D other)

@@ -1,8 +1,4 @@
-using System;
-
 using UnityEngine;
-
-using Random = UnityEngine.Random;
 
 public class PipeSpawner : MonoBehaviour
 {
@@ -12,6 +8,7 @@ public class PipeSpawner : MonoBehaviour
     public Transform end;
 
     public float spawnRate = 1.5f;
+    
     private float _timer;
 
     private void Start()
@@ -28,7 +25,7 @@ public class PipeSpawner : MonoBehaviour
             if (_timer > spawnRate)
             {
                 _timer = 0f;
-                Vector2 spawnPosition = new(start.position.x, Random.Range(start.position.y, end.position.y));
+                Vector2 spawnPosition = new Vector2(start.position.x, Random.Range(start.position.y, end.position.y));
                 Instantiate(pipesPrefab, spawnPosition, Quaternion.identity);
             }
         }
