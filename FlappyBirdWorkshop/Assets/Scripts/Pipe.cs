@@ -9,11 +9,11 @@ public class Pipe : MonoBehaviour
     {
         if (GameManager.Instance.state == GameManager.State.Playing)
         {
-            transform.position += Vector3.left * (speed * Time.deltaTime);
-            if (transform.position.x < destroyPoint)
-            {
-                Destroy(gameObject);
-            }
+            // TODO 4: Mou la canonada cap a l'esquerra una mica cada fotograma.
+            //   Pista: transform.position += Vector3.left * (speed * Time.deltaTime);
+
+            // TODO 5: Quan la canonada surti per l'esquerra (x menor que destroyPoint), esborra-la.
+            //   Pista: if (transform.position.x < destroyPoint) { Destroy(gameObject); }
         }
     }
 }

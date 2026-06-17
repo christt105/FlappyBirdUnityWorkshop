@@ -20,14 +20,18 @@ public class PipeSpawner : MonoBehaviour
     {
         if (GameManager.Instance.state == GameManager.State.Playing)
         {
+            // El temporitzador compta el temps que passa.
             _timer += Time.deltaTime;
 
-            if (_timer > spawnRate)
-            {
-                _timer = 0f;
-                Vector2 spawnPosition = new Vector2(start.position.x, Random.Range(start.position.y, end.position.y));
-                Instantiate(pipesPrefab, spawnPosition, Quaternion.identity);
-            }
+            // TODO 6: Quan hagi passat prou temps (spawnRate), crea una nova canonada
+            //   en una alçada a l'atzar i torna a posar el temporitzador a 0.
+            //   Pista:
+            //     if (_timer > spawnRate)
+            //     {
+            //         _timer = 0f;
+            //         Vector2 spawnPosition = new Vector2(start.position.x, Random.Range(start.position.y, end.position.y));
+            //         Instantiate(pipesPrefab, spawnPosition, Quaternion.identity);
+            //     }
         }
     }
 }
