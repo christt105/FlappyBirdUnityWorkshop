@@ -71,10 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPoint()
     {
-        // TODO 7: Suma 1 al marcador (_score) i ensenya'l per pantalla.
-        //   Pista:
-        //     _score += 1;
-        //     scoreText.text = _score.ToString();
+        // TODO 7: Suma 1 al marcador (_score) i actualitza el text de la pantalla (scoreText).
     }
 
     public void GameOver()

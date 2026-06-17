@@ -24,14 +24,7 @@ public class PipeSpawner : MonoBehaviour
             _timer += Time.deltaTime;
 
             // TODO 6: Quan hagi passat prou temps (spawnRate), crea una nova canonada
-            //   en una alçada a l'atzar i torna a posar el temporitzador a 0.
-            //   Pista:
-            //     if (_timer > spawnRate)
-            //     {
-            //         _timer = 0f;
-            //         Vector2 spawnPosition = new Vector2(start.position.x, Random.Range(start.position.y, end.position.y));
-            //         Instantiate(pipesPrefab, spawnPosition, Quaternion.identity);
-            //     }
+            //   en una alçada a l'atzar (entre start i end) i torna a posar el temporitzador a 0.
         }
     }
 }

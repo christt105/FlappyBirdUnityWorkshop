@@ -19,10 +19,8 @@ public class Bird : MonoBehaviour
     {
         if (GameManager.Instance.state == GameManager.State.Playing)
         {
-            // TODO 1: Quan es premi el botó de salt, fes que l'ocell salti cap amunt.
-            //   Pista: comprova Input.GetButtonDown("Jump").
-            //   Primer posa la velocitat a zero i després afegeix força cap amunt amb AddForce.
-
+            // TODO 1: Fes que l'ocell salti cap amunt quan es premi el botó de salt ("Jump").
+            //   (Si t'encalles, mira la GUIA.md)
 
             float velocityY = _rigidbody2D.velocity.y;
             const float minRotation = -90f;
@@ -50,11 +48,9 @@ public class Bird : MonoBehaviour
     private void CheckCollision(Collider2D other)
     {
         // TODO 2: Si toquem un objecte amb l'etiqueta (tag) "Point", suma un punt.
-        //   Pista: other.CompareTag("Point") i després GameManager.Instance.AddPoint();
 
-        // TODO 3: Si toquem un objecte amb l'etiqueta (tag) "Obstacle", l'ocell mor.
-        //   Pista: activa l'animació amb _animator.SetTrigger("Dead");
-        //   i avisa el joc que s'ha acabat amb GameManager.Instance.GameOver();
+        // TODO 3: Si toquem un objecte amb l'etiqueta (tag) "Obstacle", l'ocell mor
+        //   (anima la mort i avisa que s'ha acabat la partida).
     }
 
     public void StartGame()
