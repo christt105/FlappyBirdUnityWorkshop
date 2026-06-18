@@ -48,9 +48,10 @@ public class Bird : MonoBehaviour
     private void CheckCollision(Collider2D other)
     {
         // TODO 2: Si toquem un objecte amb l'etiqueta (tag) "Point", suma un punt.
+        //   Pista: other.CompareTag("...") i GameManager.Instance.AddPoint();
 
-        // TODO 3: Si toquem un objecte amb l'etiqueta (tag) "Obstacle", l'ocell mor
-        //   (anima la mort i avisa que s'ha acabat la partida).
+        // TODO 3: Si toquem un objecte amb l'etiqueta (tag) "Obstacle", l'ocell mor.
+        //   Pista: _animator.SetTrigger("Dead"); i GameManager.Instance.GameOver();
     }
 
     public void StartGame()
