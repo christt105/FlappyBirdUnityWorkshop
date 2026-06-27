@@ -23,13 +23,12 @@ public class PipeSpawner : MonoBehaviour
             // El temporitzador compta el temps que passa.
             _timer += Time.deltaTime;
 
-            // TODO 6: Quan hagi passat prou temps (spawnRate), crea una nova canonada
-            //   en una alçada a l'atzar (entre start i end) i torna a posar el temporitzador a 0.
-            //   Pista: 
-            //      _timer te el numero de segons 
-            //      quan el _timer sigui mes gran que el spawnRate
-            //      posa el _timer a 0
-            //      Instantiate(pipesPrefab, position, Quaternion.identity);
+            // TODO 6: Quan el temporitzador (_timer) superi el temps establert (spawnRate), crea una nova canonada i reinicia el temporitzador.
+            //   - Comprova si _timer és major que spawnRate amb un: if (condició) { ... }
+            //   - Dins del bloc:
+            //     1. Torna a posar el temporitzador (_timer) a 0.
+            //     2. Crea una posició (Vector2) amb la X del punt 'start' i una alçada Y aleatòria entre 'start.position.y' i 'end.position.y' (fent servir Random.Range).
+            //     3. Instancia el prefab de les canonades amb: Instantiate(pipesPrefab, posició_creada, Quaternion.identity);
             // <SOL>
             if (_timer > spawnRate) {
                 _timer = 0f;

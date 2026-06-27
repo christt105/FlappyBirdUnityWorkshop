@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
     public void AddPoint()
     {
         // TODO 7: Suma 1 al marcador (_score) i actualitza el text de la pantalla (scoreText).
+        //   - Incrementa en 1 el valor de la variable de puntuació (_score).
+        //   - Modifica la propietat '.text' de scoreText assignant-li la puntuació convertida a text amb '.ToString()'.
         // <SOL>
         _score += 1;
         scoreText.text = _score.ToString();

@@ -20,7 +20,10 @@ public class Bird : MonoBehaviour
         if (GameManager.Instance.state == GameManager.State.Playing)
         {
             // TODO 1: Fes que l'ocell salti cap amunt quan es premi el botó de salt ("Jump").
-            //   (Si t'encalles, mira la GUIA.md)
+            //   - Comprova si es prem el botó amb un condicional: if (condició) { ... }
+            //   - Condició a comprovar: Input.GetButtonDown("Jump") per detectar si es prem el botó.
+            //   - Dins del bloc, atura la caiguda (_rigidbody2D.velocity = Vector2.zero) i aplica
+            //     una empenta vertical: _rigidbody2D.AddForce(Vector2.up * force, ForceMode2D.Impulse);
             // <SOL>
             if (Input.GetButtonDown("Jump"))
             {
@@ -55,7 +58,8 @@ public class Bird : MonoBehaviour
     private void CheckCollision(Collider2D other)
     {
         // TODO 2: Si toquem un objecte amb l'etiqueta (tag) "Point", suma un punt.
-        //   Pista: other.CompareTag("...") i GameManager.Instance.AddPoint();
+        //   - Comprova amb un 'if' si l'objecte que toquem ('other') té el tag de punts: other.CompareTag("Point").
+        //   - Si es compleix, crida el mètode de sumar punt del GameManager: GameManager.Instance.AddPoint();
         // <SOL>
         if (other.CompareTag("Point"))
         {
@@ -64,7 +68,9 @@ public class Bird : MonoBehaviour
         // </SOL>
 
         // TODO 3: Si toquem un objecte amb l'etiqueta (tag) "Obstacle", l'ocell mor.
-        //   Pista: _animator.SetTrigger("Dead"); i GameManager.Instance.GameOver();
+        //   - Comprova amb un 'if' si el tag de l'objecte és un obstacle: other.CompareTag("Obstacle").
+        //   - Si és així, activa el trigger de mort de l'animador (_animator.SetTrigger("Dead"))
+        //     i crida la funció de GameOver del GameManager: GameManager.Instance.GameOver();
         // <SOL>
         if (other.CompareTag("Obstacle"))
         {
