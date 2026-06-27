@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
     public void AddPoint()
     {
         // TODO 7: Suma 1 al marcador (_score) i actualitza el text de la pantalla (scoreText).
+        // <SOL>
+        _score += 1;
+        scoreText.text = _score.ToString();
+        // </SOL>
     }
 
     public void GameOver()
